@@ -85,3 +85,5 @@ public:
         return 0;
     }
 };
+
+//best check https://leetcode.com/problems/maximum-length-of-subarray-with-positive-product/discuss/1881376/C%2B%2B-with-detailed-explanation
