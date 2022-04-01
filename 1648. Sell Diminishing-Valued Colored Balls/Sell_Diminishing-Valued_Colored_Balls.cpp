@@ -64,3 +64,5 @@ public:
         return sum;
     }
 };
+//This question is really tricky, you can count multiple element at the same time
+//Also we can insert a 0 at the back of the vector to save the time we used for checking if it is the end of the array
