@@ -1,0 +1,40 @@
+class Solution {
+public:
+    void splitStringWithDelim(string& s, char delim, vector<string>& result){
+        stringstream ss(s);
+        string token;
+        
+        while(getline(ss, token, delim)){
+            result.push_back(token);
+        }
+    }
+    string simplifyPath(string path) {
+        vector<string> splitResult;
+        splitStringWithDelim(path, '/', splitResult);
+        stack<string> pathStack;
+        string res;
+        
+        for(int i = 0; i < splitResult.size(); i++){
+            if(splitResult[i] == ".."){
+                if(!pathStack.empty()){
+                    pathStack.pop();
+                }
+            }
+            else if(splitResult[i] == "." || splitResult[i] == ""){
+                continue;
+            }
+            else{
+                pathStack.push(splitResult[i]);
+            }
+        }
+        
+        while(!pathStack.empty()){
+            res = "/" + pathStack.top() + res;
+            pathStack.pop();
+        }
+        
+        return res.size () == 0 ? "/" : res;
+    }
+    
+    
+};
